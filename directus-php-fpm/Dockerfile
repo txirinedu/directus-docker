@@ -28,9 +28,31 @@ RUN wget https://github.com/mholt/caddy/releases/download/v0.9.2/caddy_linux_amd
 RUN echo "72a163dc5a7808085bdc732c0a417b3eb7861938  caddy_linux_amd64.tar.gz" | sha1sum -c - && tar -xf caddy_linux_amd64.tar.gz -C /opt/caddy
 RUN rm caddy_linux_amd64.tar.gz
 
+RUN apk add php5-pear
+#fix missing xml module
+RUN sed -i 's/exec $PHP/exec $PHP -d extension=xml.so/g' /usr/bin/pecl
+RUN apk add vim
+RUN apk add php5-dev gcc autoconf
+RUN apk add g++
+RUN apk add openssl-dev
+RUN apk add make
+
+RUN pecl install mongodb
+
+#Install imagemaick using pecl instead of binary version due to binary version incompatibility
+RUN apk add imagemagick-dev libtool
+RUN pecl install imagick
+
+
 ADD etc /etc
 
 RUN mkdir -p /var/log/supervisor/
+RUN touch /var/log/php-fpm.log && chown www-data.www-data /var/log/php-fpm.log
+RUN mkdir /var/run/php && chown www-data.www-data /var/run/php/
+RUN touch /var/log/caddy.log && chown caddy.caddy /var/log/caddy.log
+
+
+RUN rm -R /tmp/*
 
 ENTRYPOINT ["/usr/bin/supervisord"]
 
