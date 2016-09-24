@@ -1,6 +1,6 @@
 .PHONY: build-base-image
 build-base-image:
-	docker build -t 'directus/directus-base-image' directus-php-fpm/
+	docker build  -t 'directus/directus-base-image' directus-php-fpm/
 
 .PHONY: build-test-image
 build-full-image:

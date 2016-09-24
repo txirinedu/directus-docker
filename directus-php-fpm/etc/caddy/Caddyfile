@@ -1,0 +1,10 @@
+:8080 {
+    tls off
+    root /var/www/directus
+    log stdout
+    errors stderr
+
+    # PHP-FPM with Unix socket
+    fastcgi / /var/run/php5-fpm.socket php
+
+}
