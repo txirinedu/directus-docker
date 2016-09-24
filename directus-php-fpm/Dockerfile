@@ -43,8 +43,13 @@ RUN pecl install mongodb
 RUN apk add imagemagick-dev libtool
 RUN pecl install imagick
 
+#composer support
+RUN apk add php5-ctype
+RUN apk add php5-dom
+RUN apk add git
 
 ADD etc /etc
+ADD usr /usr
 
 RUN mkdir -p /var/log/supervisor/
 RUN touch /var/log/php-fpm.log && chown www-data.www-data /var/log/php-fpm.log
