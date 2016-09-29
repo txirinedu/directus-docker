@@ -19,6 +19,6 @@ docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_U
           -e MYSQL_PASSWORD=directus --name mysql -d mysql:5.5
 
 # Start directus
-docker run --link mysql:mysql -p 8080:80 --name directus -d getdirectus/directus:6.3
+docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.3
 ```
 
