@@ -5,6 +5,7 @@ Official Directus Container
 
 #### Learn more at [GetDirectus.com](http://getdirectus.com) and follow us on Twitter: [@directus](https://twitter.com/directus)
 [![](https://images.microbadger.com/badges/image/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/getdirectus/directus.svg)](https://microbadger.com/images/getdirectus/directus "Get your own version badge on microbadger.com")
 
 
 ## Available versions
