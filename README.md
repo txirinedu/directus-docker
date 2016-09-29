@@ -1,6 +1,4 @@
-<p align="center">
-<img src="http://getdirectus.com/assets/imgs/directus.png" alt="Directus Logo"/>
-</p>
+![Directus Logo](http://getdirectus.com/assets/imgs/directus.png)
 
 Official Directus Container
 ====================
