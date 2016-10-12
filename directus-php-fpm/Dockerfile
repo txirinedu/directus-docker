@@ -36,6 +36,8 @@ RUN wget https://github.com/mholt/caddy/releases/download/v0.9.2/caddy_linux_amd
     echo "72a163dc5a7808085bdc732c0a417b3eb7861938  caddy_linux_amd64.tar.gz" | sha1sum -c - && tar -xf caddy_linux_amd64.tar.gz -C /opt/caddy && \
     rm caddy_linux_amd64.tar.gz
 
+RUN apk add mariadb-client
+
 ADD etc /etc
 ADD usr /usr
 

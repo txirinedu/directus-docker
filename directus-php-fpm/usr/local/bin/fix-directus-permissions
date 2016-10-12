@@ -24,3 +24,5 @@ fi
 
 chown www-data.www-data /var/www/directus/api/config.php
 chmod o-wrx /var/www/directus/api/config.php
+
+chown www-data.www-data -R /var/www/directus/installation
