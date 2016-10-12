@@ -1,4 +1,4 @@
-FROM getdirectus/directus-base-layer:v0.0.3
+FROM getdirectus/directus-base-layer:v0.0.4
 MAINTAINER Luis Santos "luis@luissantos.pt"
 
 

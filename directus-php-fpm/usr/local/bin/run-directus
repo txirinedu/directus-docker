@@ -7,17 +7,17 @@ DIRECTUS_SITE_NAME="${DIRECTUS_SITE_NAME:-directus}"
 
 is_elasticbeanstalk(){
   if [ -z ${RDS_DB_NAME+x} ]; then
-    return 0
-  else
     return 1
+  else
+    return 0
   fi
 }
 
 is_linked_container(){
   if [ -z ${MYSQL_ENV_MYSQL_DATABASE+x} ]; then
-    return 0
-  else
     return 1
+  else
+    return 0
   fi
 }
 
@@ -25,9 +25,9 @@ is_database_installed(){
   tables=$(mysql -D $DIRECTUS_DB_SCHEMA -h $DIRECTUS_DB_HOST -u$DIRECTUS_DB_USER -P $DIRECTUS_DB_PORT -p$DIRECTUS_DB_PASSWORD --batch --skip-column-names -e "show tables")
 
   if [ -z "$tables" ]; then
-    return 0
-  else
     return 1
+  else
+    return 0
   fi
 
 }
@@ -41,7 +41,7 @@ if is_elasticbeanstalk ; then
     DIRECTUS_DB_USER=$RDS_USERNAME
 fi
 
-if is_elasticbeanstalk ; then
+if is_linked_container ; then
     DIRECTUS_DB_SCHEMA=$MYSQL_ENV_MYSQL_DATABASE
     DIRECTUS_DB_HOST=$MYSQL_PORT_3306_TCP_ADDR
     DIRECTUS_DB_PORT=$MYSQL_PORT_3306_TCP_PORT
