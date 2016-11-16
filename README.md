@@ -12,6 +12,12 @@ Official Directus Container
 
 * 6.3 (Lapis Lepus) [(directus/6.3/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.3/Dockerfile)
 
+## Quick Start using docker-compose
+```bash
+# Start directus
+docker-compose up
+```
+
 ## Quick Start
 ```bash
 # Start mysql
@@ -21,4 +27,3 @@ docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_U
 # Start directus
 docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.3
 ```
-

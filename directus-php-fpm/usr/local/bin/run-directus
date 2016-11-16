@@ -49,6 +49,11 @@ if is_linked_container ; then
     DIRECTUS_DB_USER=$MYSQL_ENV_MYSQL_USER
 fi
 
+
+if [ ! -d /var/www/directus/vendor ]; then
+   composer install -d /var/www/directus/
+fi
+
 /var/www/directus/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD"
 
 if ! is_database_installed ; then
