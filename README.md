@@ -27,3 +27,8 @@ docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_U
 # Start directus
 docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.3
 ```
+
+## Directus Login Credentials
+
+- Email: **admin@admin.com**
+- password: **admin**
