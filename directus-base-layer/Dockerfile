@@ -1,5 +1,5 @@
 FROM php:7-apache
-MAINTAINER Kristian Frolund "kristian@froelund.net"
+MAINTAINER Kristian Frolund "https://github.com/Froelund"
 
 RUN apt-get update && apt-get install -y \
   wget \
