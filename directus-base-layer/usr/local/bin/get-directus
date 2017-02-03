@@ -3,10 +3,10 @@ set -e
 
 DIRECTUS_VERSION=$1
 
+rm -rf /var/www/html
 mkdir -p /var/www
 
 wget -P /tmp/ https://github.com/directus/directus/archive/$DIRECTUS_VERSION.tar.gz
 tar -xf /tmp/$DIRECTUS_VERSION.tar.gz -C /var/www/
-mv /var/www/directus* /var/www/directus
-
+mv /var/www/directus-$DIRECTUS_VERSION /var/www/html
 rm /tmp/$DIRECTUS_VERSION.tar.gz
