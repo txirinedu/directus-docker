@@ -1,6 +1,8 @@
 #!/bin/sh
 set -ea
 
+echo "Running directus!"
+
 DIRECTUS_ADMIN_EMAIL="${DIRECTUS_ADMIN_EMAIL:-admin@admin.com}"
 DIRECTUS_ADMIN_PASSWORD="${DIRECTUS_ADMIN_PASSWORD:-admin}"
 DIRECTUS_SITE_NAME="${DIRECTUS_SITE_NAME:-directus}"
@@ -50,23 +52,22 @@ if is_linked_container ; then
 fi
 
 
-if [ ! -d /var/www/directus/vendor ]; then
-   composer install -d /var/www/directus/
+if [ ! -d /var/www/html/vendor ]; then
+  composer install
 fi
 
-/var/www/directus/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD"
+/var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD"
 
 if ! is_database_installed ; then
-  /var/www/directus/bin/directus install:database
-  /var/www/directus/bin/directus install:install -e "$DIRECTUS_ADMIN_EMAIL" -p "$DIRECTUS_ADMIN_PASSWORD" -t "$DIRECTUS_SITE_NAME"
+  /var/www/html/bin/directus install:database
+  /var/www/html/bin/directus install:install -e "$DIRECTUS_ADMIN_EMAIL" -p "$DIRECTUS_ADMIN_PASSWORD" -t "$DIRECTUS_SITE_NAME"
 fi
 
-rm -R -f /var/www/directus/installation/*
-
+rm -R -f /var/www/html/installation/*
 
 trap 'kill -TERM $PID' TERM INT
 
-/usr/bin/php-fpm -F
+apache2-foreground
 
 PID=$!
 wait $PID
