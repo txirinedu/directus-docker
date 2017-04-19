@@ -6,6 +6,7 @@ echo "Running directus!"
 DIRECTUS_ADMIN_EMAIL="${DIRECTUS_ADMIN_EMAIL:-admin@admin.com}"
 DIRECTUS_ADMIN_PASSWORD="${DIRECTUS_ADMIN_PASSWORD:-admin}"
 DIRECTUS_SITE_NAME="${DIRECTUS_SITE_NAME:-directus}"
+DIRECTUS_PATH="${DIRECTUS_PATH:-/}"
 
 is_elasticbeanstalk(){
   if [ -z ${RDS_DB_NAME+x} ]; then
@@ -56,7 +57,7 @@ if [ ! -d /var/www/html/vendor ]; then
   composer install
 fi
 
-/var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD"
+/var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
 
 if ! is_database_installed ; then
   /var/www/html/bin/directus install:database
