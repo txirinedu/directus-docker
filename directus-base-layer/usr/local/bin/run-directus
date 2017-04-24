@@ -34,7 +34,7 @@ is_database_installed(){
   fi
 }
 
-is_directus_installed(){
+are_configs_generated(){
   if [ -f /var/www/html/api/config.php -a -f /var/www/html/api/configuration.php ]; then
     return 0
   else
@@ -63,7 +63,7 @@ if [ ! -d /var/www/html/vendor ]; then
   composer install
 fi
 
-if ! is_directus_installed ; then
+if ! are_configs_generated ; then
   /var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
 fi
 
