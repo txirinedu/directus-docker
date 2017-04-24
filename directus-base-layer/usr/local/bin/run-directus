@@ -57,7 +57,9 @@ if [ ! -d /var/www/html/vendor ]; then
   composer install
 fi
 
-/var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
+if [ ! -f /var/www/html/api/config.php ]; then
+  /var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
+fi
 
 if ! is_database_installed ; then
   /var/www/html/bin/directus install:database
