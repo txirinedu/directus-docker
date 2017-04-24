@@ -32,9 +32,15 @@ is_database_installed(){
   else
     return 0
   fi
-
 }
 
+is_directus_installed(){
+  if [ -f /var/www/html/api/config.php -a -f /var/www/html/api/configuration.php ]; then
+    return 0
+  else
+    return 1
+  fi
+}
 
 if is_elasticbeanstalk ; then
     DIRECTUS_DB_SCHEMA=$RDS_DB_NAME
@@ -57,7 +63,7 @@ if [ ! -d /var/www/html/vendor ]; then
   composer install
 fi
 
-if [ ! -f /var/www/html/api/config.php ]; then
+if ! is_directus_installed ; then
   /var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
 fi
 
