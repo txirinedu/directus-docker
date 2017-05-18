@@ -9,6 +9,10 @@ services:
       - MYSQL_DATABASE=directus
       - MYSQL_USER=directus
       - MYSQL_PASSWORD=directus
+    # publish mysql server ports to access
+    # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
+    # ports:
+    #  - "3306:3306"
   directus:
     depends_on:
        - mysql
@@ -21,7 +25,7 @@ services:
     restart: always
     # Replace ~/Development/directus with your local directus git checkout
     # volumes:
-    #    - ~/Development/directus:/var/www/directus
+    #    - ~/Development/directus:/var/www/html
     environment:
      - MYSQL_USER=directus
      - MYSQL_PASSWORD=directus
