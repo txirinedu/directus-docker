@@ -64,7 +64,7 @@ if [ ! -d /var/www/html/vendor ]; then
 fi
 
 if ! are_configs_generated ; then
-  /var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH"
+  /var/www/html/bin/directus install:config -h "$DIRECTUS_DB_HOST" -n "$DIRECTUS_DB_SCHEMA" -u "$DIRECTUS_DB_USER" -p "$DIRECTUS_DB_PASSWORD" -d "$DIRECTUS_PATH" -e "$DIRECTUS_ADMIN_EMAIL"
 fi
 
 if ! is_database_installed ; then
