@@ -1,4 +1,4 @@
-FROM getdirectus/directus-base-layer:0.0.8
+FROM getdirectus/directus-base-layer:0.0.9
 MAINTAINER Luis Santos "luis@luissantos.pt"
 
 RUN get-directus 6.3.9
