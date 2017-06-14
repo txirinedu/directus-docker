@@ -11,6 +11,7 @@ Official Directus Container
 ## Available versions
 
 * 6.3 (Lapis Lepus) [(directus/6.3/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.3/Dockerfile)
+* 6.4RC (Ruby Rabbit) [(directus/6.4/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.4/Dockerfile)
 
 ## Quick Start using docker-compose
 ```bash
