@@ -30,5 +30,6 @@ docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/direct
 
 ## Directus Login Credentials
 
+- Host: http://localhost:8080
 - Email: **admin@admin.com**
 - password: **admin**
