@@ -36,7 +36,7 @@ is_database_installed(){
 }
 
 are_configs_generated(){
-  if [ -f /var/www/html/api/config.php -a -f /var/www/html/api/configuration.php ]; then
+  if [ -s /var/www/html/api/config.php -a -s /var/www/html/api/configuration.php ]; then
     return 0
   else
     return 1
