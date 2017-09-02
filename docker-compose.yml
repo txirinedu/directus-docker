@@ -19,7 +19,7 @@ services:
   directus:
     depends_on:
        - mysql
-    image: getdirectus/directus:6.3
+    image: getdirectus/directus:6.4
     container_name: directus
     # links:
     #  - mysql:mysql

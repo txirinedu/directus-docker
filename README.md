@@ -11,7 +11,7 @@ Official Directus Container
 ## Available versions
 
 * 6.3 (Lapis Lepus) [(directus/6.3/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.3/Dockerfile)
-* 6.4RC (Ruby Rabbit) [(directus/6.4/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.4/Dockerfile)
+* 6.4 (Ruby Rabbit) [(directus/6.4/Dockerfile)](https://github.com/directus/directus-docker/blob/master/directus/6.4/Dockerfile)
 
 ## Quick Start using docker-compose
 ```bash
@@ -26,7 +26,7 @@ docker run -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=directus -e MYSQL_U
           -e MYSQL_PASSWORD=directus --name mysql -d mysql:5.5
 
 # Start directus
-docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.3
+docker run --link mysql:mysql -p 8080:8080 --name directus -d getdirectus/directus:6.4
 ```
 
 ## Directus Login Credentials
