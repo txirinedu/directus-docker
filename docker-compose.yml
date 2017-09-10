@@ -12,7 +12,7 @@ services:
     # publish mysql server ports to access
     # from outside of container with: mysql -h localhost -P 3306 --protocol=tcp -u directus -p
     # ports:
-    #  - "3306:3306"
+    #  - "8806:3306"
     # If you need to specify a persistent volume for mysql
     volumes:
       - "./.data/db:/var/lib/mysql"
