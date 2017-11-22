@@ -24,7 +24,7 @@ services:
     # links:
     #  - mysql:mysql
     ports:
-     - "8080:8080"
+     - "80:8080"
     restart: always
     volumes:
     # Switch between named storage, path storage
